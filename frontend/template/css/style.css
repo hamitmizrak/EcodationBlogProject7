@@ -11,7 +11,7 @@
 /*ROOT*/
 :root {
     --template-bg: #271d1d;
-    --template-color: rgb(252, 237, 237);
+    --template-color: rgb(255, 255, 255);
     --max-width: 100%;
     --img-max-width: 100%;
     --img-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, .9);
