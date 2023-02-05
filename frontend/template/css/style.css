@@ -32,8 +32,8 @@ html {
 }
 
 body {
-    font-family: 'Lora', serif;
-    font-family: 'Quicksand', sans-serif;
+    /* font-family: 'Lora', serif;
+    font-family: 'Quicksand', sans-serif; */
     font-size: 1.1rem;
     background-color: var(--template-bg);
     color: var(--template-color);
@@ -129,6 +129,30 @@ margin-top:2.5rem;
 }
 
 
+/*##################################################*/
+
+/*yetenekler*/
+#main_company_information{
+margin-top: 4rem;
+margin-bottom: 4rem;
+}
+
+/*counter*/
+#counter{
+    background-color: rgb(245, 242, 238);
+    color:black;
+    padding:1rem;
+    min-height: 30rem;
+    margin: 3rem auto;
+}
+
+#counter i{
+    font-size: 5rem;
+}
+
+.counter_header h3,p{
+    text-align: center;
+}
 
 
 /*##################################################*/
