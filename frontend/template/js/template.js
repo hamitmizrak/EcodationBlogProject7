@@ -17,3 +17,7 @@ $(document).ready(function(){
 
 
 //#########################################################
+// FOOTER 
+
+document.getElementById("next_year").innerHTML=new Date().getFullYear();
+// $("#next_year").html(new Date().getFullYear());
