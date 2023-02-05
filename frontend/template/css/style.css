@@ -98,9 +98,32 @@ i {
 
 /*##################################################*/
 
-
+/* NAVBAR */
 /* dark Light Mode */
 .dark_mode{
     background-color: var(--template-color);
     color: var(--template-bg); 
+}
+
+/*##################################################*/
+
+/* HEADER */
+header{
+    margin-top: 3rem;
+    background-image: url('../img/header2.jpg');
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 90vh;
+    z-index: -1;
+    padding-top:15rem;
+}
+
+#header_sub{
+    background-color: black;
+    opacity: 0.8;
+}
+#header_sub>a>i{
+margin-right: 1rem;
+font-size: 2rem;
+margin-top:2.5rem;
 }
