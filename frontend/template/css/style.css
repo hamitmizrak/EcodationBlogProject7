@@ -96,3 +96,10 @@ i {
 
 
 /*##################################################*/
+
+
+/* dark Light Mode */
+.dark_mode{
+    background-color: var(--template-color);
+    color: var(--template-bg); 
+}
