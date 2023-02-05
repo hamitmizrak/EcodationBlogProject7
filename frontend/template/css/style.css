@@ -163,9 +163,17 @@ margin-bottom: 4rem;
     background-attachment: fixed;
     background-size: cover;
     margin-top:-5rem;
-    height: 30rem;
-    padding: 3rem;
+    height: 28rem;
+    padding: 2rem;
     
+}
+
+
+/*newspaper*/
+.main_newspaper{
+    background-color: rgb(245, 242, 238);
+    color:black;
+    margin-top: 9rem;
 }
 
 
