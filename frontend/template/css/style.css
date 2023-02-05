@@ -149,3 +149,14 @@ padding:3rem;
 #footer_copyright{
  
 }
+
+/* back to top */
+#back_top{
+    position: fixed!important;
+    right: 0;
+    bottom: 0;
+}
+
+#back_top:hover{
+    opacity: .8;
+}
