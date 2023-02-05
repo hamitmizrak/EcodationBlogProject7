@@ -178,6 +178,28 @@ margin-bottom: 4rem;
     line-height: 2;
 }
 
+/*blog*/
+#main_blog{
+    position: relative;
+}
+
+#main_blog::before{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    content: "";
+    background-image: url("../img/header1.jpg");
+    background-size: contain;
+    opacity: .2;
+}
+
+#main_blog .card{
+    margin-top: 2rem;
+    margin-right: 1rem;
+}
+
 
 /*##################################################*/
 
