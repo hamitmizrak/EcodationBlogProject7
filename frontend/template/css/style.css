@@ -1,6 +1,98 @@
-* {}
+/*
+    PROJECT
+        -name: My Web site
+        -created date: 5 Şubat 2023
+        -author: Hamit Mızrak
+        -version: V.1
+*/
+
+/*##################################################*/
+/*base configuration*/
+/*ROOT*/
+:root {
+    --template-bg: #271d1d;
+    --template-color: rgb(252, 237, 237);
+    --max-width: 100%;
+    --img-max-width: 100%;
+    --img-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, .9);
+    --icon-size: 1.4rem;
+}
+
+/*##################################################*/
+/*COMMON*/
+* {
+    margin: 0 px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 15px;
+    transition: 1.2s all;
+}
 
 body {
     font-family: 'Lora', serif;
     font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    background-color: var(--template-bg);
+    color: var(--template-color);
+    line-height: 1.5;
+    position: relative;
 }
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+p {
+    text-align: justify;
+}
+
+img {
+    max-width: var(--img-max-width);
+}
+
+img:hover {
+    box-shadow: var(--img-box-shadow);
+    cursor: pointer;
+}
+
+i {
+    font-size: var(--icon-size);
+}
+
+.line-clamp4 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.line-clamp6 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+}
+
+.line-clamp8 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+}
+
+.line-clamp10 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+}
+
+
+/*##################################################*/
