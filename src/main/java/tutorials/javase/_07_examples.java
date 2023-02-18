@@ -2,6 +2,7 @@ package tutorials.javase;
 
 
 import javax.swing.*;
+import java.util.Scanner;
 
 public class _07_examples {
     public static void main(String[] args) {
@@ -62,7 +63,7 @@ public class _07_examples {
         //kullanıcıdan alınan değerle anlatılacaktır.
         //vki = kilo / boy * boy;
         //JOptioanl pane: String veri döndürür.
-        String kilo= JOptionPane.showInputDialog("Lütfen kilonunuzu giriniz");
+       /* String kilo= JOptionPane.showInputDialog("Lütfen kilonunuzu giriniz");
         double kiloCast=Double.valueOf(kilo);
         System.out.println(kiloCast);
 
@@ -71,9 +72,22 @@ public class _07_examples {
         System.out.println(boyCast);
 
         double vki = (kiloCast / (boyCast * boyCast));
+        System.out.println(vki);*/
+
+        //Scanner
+        Scanner klavye=new Scanner(System.in);
+        System.out.println("Lütfen adınız giriniz");
+        String name=klavye.nextLine();
+        System.out.println(name.toUpperCase());
+
+        System.out.println("Lütfen boyunuzu giriniz");
+        double boyum=klavye.nextDouble();
+
+        System.out.println("Lütfen kilonuzu giriniz");
+        double kilom=klavye.nextDouble();
+
+        double vki = (kilom / (boyum * boyum));
         System.out.println(vki);
-
-
     }
 }
 
