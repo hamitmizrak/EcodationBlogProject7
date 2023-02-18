@@ -63,14 +63,14 @@ public class _07_examples {
         //vki = kilo / boy * boy;
         //JOptioanl pane: String veri döndürür.
         String kilo= JOptionPane.showInputDialog("Lütfen kilonunuzu giriniz");
-        int kiloCast=Integer.valueOf(kilo);
+        double kiloCast=Double.valueOf(kilo);
         System.out.println(kiloCast);
 
         String boy= JOptionPane.showInputDialog("Lütfen boyunuzu giriniz");
-        int boyCast=Integer.valueOf(boy);
+        double boyCast=Double.valueOf(boy);
         System.out.println(boyCast);
 
-        int vki = (kiloCast / (boyCast * boyCast));
+        double vki = (kiloCast / (boyCast * boyCast));
         System.out.println(vki);
 
 
