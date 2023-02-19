@@ -19,7 +19,6 @@ public class _15_Metot {
         return "returnluParametresiz: "+number;
     }
 
-
     public static void main(String[] args) {
         voidliParametresiz();
         voidliParametreli("Java");
@@ -32,7 +31,17 @@ public class _15_Metot {
         System.out.println(data2);
     }
 
-    //parametre
-    //arguman
+    //parametre:metotlatta kullanılan
+    //arguman:metota değer gönderirken
 
+    //Ödevler: kullanıcıdan alınan bir sayının Faktöriyeli hesaplayan algoritma iterative
+    //Ödevler: kullanıcıdan alınan bir sayının Faktöriyeli hesaplayan algoritma recursive
+
+    //Ödevler: kullanıcıdan alınan bir sayının Asal olup olmadığını hesaplayan algoritma
+    //Ödevler: kullanıcıdan alınan bir kelimenin tersten okunuşunu gösteren Algoritma(Palindrom) Masa  asam
+
+    // Java By pass value midir ?  örnekle        ==> Burak
+    // Garbarage collection nedir? örnekler       ==> Atakan
+    // Encapsulation nedir ? örnekle              ==> Altan
+    // Overloading  nedir ?  örnekle              ==> Halit
 }
