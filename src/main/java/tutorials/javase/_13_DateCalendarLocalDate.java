@@ -4,6 +4,14 @@ import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
+
+//break-return-continue
+//exception handling
+//debug
+
+//access modifier
+//metot
+
 public class _13_DateCalendarLocalDate {
 
     public static void main(String[] args) {
@@ -19,7 +27,9 @@ public class _13_DateCalendarLocalDate {
         date.setMonth(10);
         System.out.println(date.getMonth());
         System.out.println(date.getHours()+":"+date.getMinutes());
-        System.out.println(new Date(System.currentTimeMillis()) );
+        System.out.println(new Date(System.currentTimeMillis()) ); // yıl ay gün saat dakika sanite zone
+        long time=System.currentTimeMillis();
+        System.out.println(time);
 
         //Calendar:
         Calendar calendar=Calendar.getInstance();
