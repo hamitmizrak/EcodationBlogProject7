@@ -1,10 +1,9 @@
 package tutorials.javase;
 
 
-import javax.swing.*;
 import java.util.Scanner;
 
-public class _07_examples {
+public class _07_Scanner_jOptionalPane {
     public static void main(String[] args) {
         // 1.soru
         // 1.dereceden 2 bilinmeyenli denklem
