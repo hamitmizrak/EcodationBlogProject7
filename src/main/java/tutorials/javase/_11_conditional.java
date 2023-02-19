@@ -60,12 +60,25 @@ public class _11_conditional {
                 break;
         }
 
-        // kullanıcıdan alınan password ve repassword eşitse eşit olduğunu değilse
+        // ÖDEV
+        // kullanıcıdan alınan password ve repassword eşitse eşit olduğunu değilse (equals)
         // eşit olmadığını ekranda göstersin.
 
+        // ÖDEV
         // kullanıcıdan alınan bir değerin sayı mı? harf mi ? özel simge mi ?
 
-        // Ödev : sayı tahmin oyunu ?
+        // Biz : sayı tahmin oyunu ?
+        // kullanıcıdan aldığımız bir sayı(Scanner veya jOptionalPnane) ile bilgisayarın 1-10 arasında sayı üretsin (Random Object)
+        // bilgisayarın ürettiği sayıyı tahmin etmeye çalışalım.
+
+        // sayı tahmin sayımız 3 defa olmalıdır
+        // Ekranda kaçıncı tahminde bulduğumuzu bize söylesin.
+        // Eğer doğru tahmin edersek, bize soru sorsun oyunu tekrar oynamak istiyor musunuz ?
+        // eğer cevabımız evetse oyuna tekrar oynatsın. eğer hayırsa şimdiye kadar bu oyunu kaç kere oynadığımızı bize söylesin.
+
+        // Validation: Kullanıcı negatif sayı giremez,
+        // Validation: Kullanıcı sadece sayı girebilir. Eğer özel simge veya harf girerse bizi uyarsın,
+        // Validation: Kullanıcı sadece sayı sınırı olsun 1-10000 arasında sadece sayı girebilir.
 
     }
 }
