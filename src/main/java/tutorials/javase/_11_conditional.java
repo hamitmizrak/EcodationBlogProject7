@@ -60,5 +60,12 @@ public class _11_conditional {
                 break;
         }
 
+        // kullanıcıdan alınan password ve repassword eşitse eşit olduğunu değilse
+        // eşit olmadığını ekranda göstersin.
+
+        // kullanıcıdan alınan bir değerin sayı mı? harf mi ? özel simge mi ?
+
+        // Ödev : sayı tahmin oyunu ?
+
     }
 }
