@@ -1,5 +1,6 @@
 package tutorials.javase;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.StringTokenizer;
 
@@ -28,7 +29,7 @@ public class _10_StringBuilderAndTokenizer {
         String langData = "java+javase$ jsp_jsf# spingboot springMVC~ SpringData SpringRest StringSecurity";
         StringTokenizer stringTokenizer = new StringTokenizer(langData, "+$_~ ");
         while (stringTokenizer.hasMoreTokens()) {
-            System.out.println(stringTokenizer.nextToken());
+            System.out.println(stringTokenizer.nextToken().toUpperCase());
         }
 
         System.out.println("************************");
@@ -45,15 +46,8 @@ public class _10_StringBuilderAndTokenizer {
         int number=random.nextInt(3)+1;
         System.out.println(number);
 
-        //conditional
-        //loop
-        //break-return-continue
-        //calendar
-        //exception handling
-        //debug
 
-        //access modifier
-        //metot
+
 
     }
 }
