@@ -35,6 +35,5 @@ public class _08_EscapeSystemMathRandom {
         System.out.println(Math.sin(45));
         System.out.println(Math.asin(-1));
 
-
     }
 }
