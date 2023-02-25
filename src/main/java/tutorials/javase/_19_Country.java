@@ -12,6 +12,11 @@ public class _19_Country {
         @Getter @Setter
         private String cityName;
 
+        public static class Neighbourhood{
+            @Getter @Setter
+            private String neighbourName;
+        }
+
     }
 }
 
@@ -23,7 +28,10 @@ class MainClass{
         _19_Country.City city=new _19_Country.City();
         city.setCityName("Bingöl");
 
-        System.out.println("Ülke: "+country.getCountryName()+" İl: "+city.getCityName());
+        _19_Country.City.Neighbourhood neighbourhood=new _19_Country.City.Neighbourhood();
+        neighbourhood.setNeighbourName("susam sokağı");
+
+        System.out.println("Ülke: "+country.getCountryName()+" İl: "+city.getCityName()+" Mahalle: "+neighbourhood);
     }
 }
 
