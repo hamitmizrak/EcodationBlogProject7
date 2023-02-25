@@ -20,41 +20,59 @@ import java.util.Scanner;
 // public void deneme(double... dizi){}
 public class MatrixHomework {
 
-    public static void main(String[] args) {
-        Scanner klavye=new Scanner(System.in);
+    //Kullanıcıdan veri almak
+    public String userData() {
+        Scanner klavye = new Scanner(System.in);
         System.out.println("Lütfen adınızı giriniz");
-        String adi=klavye.nextLine();
+        String name = klavye.nextLine().toUpperCase();
+        return name;
+    }
 
-        char[] adiChar=new char[adi.length()];
-        char[][] matrix=new char[3][3];
-
-        for (int i = 0; i < adi.length(); i++) {
-            adiChar[i]=adi.charAt(i);
+    //String'i char diziye atadım.
+    public char[] stringToChar() {
+        String name = userData();
+        char[] nameChar = new char[name.length()];
+        for (int i = 0; i < name.length(); i++) {
+            nameChar[i] = name.charAt(i);
         }
+        //System.out.println(nameChar[0]); //ilk eleman
+        //System.out.println(nameChar[nameChar.length - 1]); //son eleman
+        //System.out.println(nameChar[nameChar.length / 2]); //ortanca
+        return nameChar;
+    }
 
-        System.out.println( adiChar[0]); //ilk eleman
-        System.out.println( adiChar[adiChar.length-1] ); //son eleman
-        System.out.println( adiChar[adiChar.length/2]); //ortanca
-
+    // diagonal i==k i>k i<k
+    public char[][] charProcess() {
+        char[][] matrix = new char[3][3];
+        char[] stringToChar = stringToChar();
         for (int i = 0; i < matrix.length; i++) {
-            for (int k= 0; k < matrix[i].length; k++) {
-                if(i==k){//diagonal ortanca tarafı
-                    matrix[i][k]=adiChar[adiChar.length/2];
-                }else if(i>k){ //diagonal alt tarafı
-                    matrix[i][k]= adiChar[adiChar.length-1];
-                }else if(i<k){//diagonal üst tarafı
-                    matrix[i][k]= adiChar[0];
+            for (int k = 0; k < matrix[i].length; k++) {
+                if (i == k) {//diagonal ortanca tarafı
+                    matrix[i][k] = stringToChar[stringToChar.length / 2];
+                } else if (i > k) { //diagonal alt tarafı
+                    matrix[i][k] = stringToChar[stringToChar.length - 1];
+                } else if (i < k) {//diagonal üst tarafı
+                    matrix[i][k] = stringToChar[0];
                 }
             }
             System.out.println();
         }
+        return matrix;
+    }
 
+    //matrix elemanlarını göstermek
+    public void charProcessShowing(char[][] matrix) {
         // döngüyü göstermek
-        for (int i = 0; i <matrix.length ; i++) {//satır
-            for (int k = 0; k <matrix[i].length ; k++) {//sutun
-                System.out.print(matrix[i][k]+" ");
+        for (int i = 0; i < matrix.length; i++) {//satır
+            for (int k = 0; k < matrix[i].length; k++) {//sutun
+                System.out.print(matrix[i][k] + " ");
             }
             System.out.println();
         }
+    }
+
+    public static void main(String[] args) {
+        MatrixHomework matrixHomework = new MatrixHomework();
+        matrixHomework.charProcessShowing(matrixHomework.charProcess());
     }
 }
