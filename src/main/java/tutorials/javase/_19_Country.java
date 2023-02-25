@@ -31,7 +31,7 @@ class MainClass{
         _19_Country.City.Neighbourhood neighbourhood=new _19_Country.City.Neighbourhood();
         neighbourhood.setNeighbourName("susam sokağı");
 
-        System.out.println("Ülke: "+country.getCountryName()+" İl: "+city.getCityName()+" Mahalle: "+neighbourhood);
+        System.out.println("Ülke: "+country.getCountryName()+" İl: "+city.getCityName()+" Mahalle:  "+neighbourhood);
     }
 }
 
