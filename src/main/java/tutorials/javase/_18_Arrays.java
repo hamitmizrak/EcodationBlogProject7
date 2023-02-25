@@ -26,6 +26,5 @@ public class _18_Arrays {
             }
             System.out.println();
         }
-//ÖDEV:
     }
 }
