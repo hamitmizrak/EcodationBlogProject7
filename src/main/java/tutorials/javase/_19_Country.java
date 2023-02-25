@@ -26,3 +26,14 @@ class MainClass{
         System.out.println("Ülke: "+country.getCountryName()+" İl: "+city.getCityName());
     }
 }
+
+// File
+// NumberGuessingGame
+// Generics
+// Collection
+// OOP nedir ? Class
+// Inheritance
+// abstract
+// interface
+// JAVA 8 gelen özelliklerden
+
