@@ -1,6 +1,5 @@
 package tutorials.jav.examples;
 
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -25,7 +24,6 @@ public class NumberGuessingGame {
     }
 
     private static void userSpecialNumber(){
-
         char c1='@';
         if(Character.isDigit(c1)){
             System.out.println("SAyıdır");
@@ -62,6 +60,5 @@ public class NumberGuessingGame {
 // result:  Ekranda kaçıncı tahminde bulduğumuzu bize söylesin.
 // result:  Eğer doğru tahmin edersek, bize soru sorsun oyunu tekrar oynamak istiyor musunuz ?
 // result:  eğer cevabımız evetse oyuna tekrar oynatsın. eğer hayırsa şimdiye kadar bu oyunu kaç kere oynadığımızı bize söylesin.
-
-
+    
 }
