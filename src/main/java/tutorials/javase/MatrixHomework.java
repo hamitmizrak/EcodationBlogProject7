@@ -76,3 +76,5 @@ public class MatrixHomework {
         matrixHomework.charProcessShowing(matrixHomework.charProcess());
     }
 }
+
+//inner class
