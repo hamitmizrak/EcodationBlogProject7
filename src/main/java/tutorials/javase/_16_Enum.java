@@ -18,6 +18,5 @@ class MainEnum{
         for ( _16_Enum temp : _16_Enum.values()  ){
             System.out.println(temp);
         }
-
     }
 }
