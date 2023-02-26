@@ -20,7 +20,7 @@ public class _19_Country {
     }
 }
 
-class MainClass{
+class MainClassThread{
     public static void main(String[] args) {
         _19_Country country=new _19_Country();
         country.setCountryName("Türkiye");
