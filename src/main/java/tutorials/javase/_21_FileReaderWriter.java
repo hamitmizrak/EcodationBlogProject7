@@ -1,11 +1,12 @@
 package tutorials.javase;
-
 import lombok.extern.log4j.Log4j2;
-
 import java.io.*;
 import java.util.Date;
 import java.util.Scanner;
-
+// Absolute Path: Statiktir.
+// Relative Path: Dinamiktir.
+// URL: Uniform Resource Loader
+// URI: Uniform Resource Identifier
 // C:\io\ecodation
 @Log4j2
 public class _21_FileReaderWriter {
@@ -40,12 +41,12 @@ public class _21_FileReaderWriter {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(URL))) {
             StringBuilder stringBuilder = new StringBuilder();
             String rows = "";
-
             while ((rows = bufferedReader.readLine()) != null) {
                 stringBuilder.append("\n").append(rows);
             }
             String data = stringBuilder.toString();
             log.info(data);
+            System.out.println("Başarılı bir şekilde okundu");
         } catch (IOException exception) {
             exception.printStackTrace();
         } catch (Exception exception) {
