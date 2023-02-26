@@ -104,3 +104,33 @@ class MainClass{
         implementsthread4.start();
     }
 }
+
+// Current Week
+// software prensible: DRY - DammyCode - YAGNI - RREP - CleanCode
+// Dont Repeat Yourself: Kendini sürekli tekrar yapma. ==> Metotları, class
+// DammyCode: interface kullanmadığımız gövdesiz metotları boşu boşuna implement etmeyelim.
+// YAGNI: ihtiyacımız olmayacak özellikleri sisteme dahil etmeyelim.
+// KISS: yolu uzatmadan sonuca ulaşın.
+
+// SOLID: Java kodları
+
+// OOP nedir ?
+// Object Oriented Programming
+
+// static
+// final
+// finally
+// const
+// Seriazable
+// Access modifier(remember)
+
+// Class logic
+// bean
+// Lombok
+
+
+//Future week
+//Generics
+//Collection List,Set,Map
+//Java 8 Stream(map,filter,forEach etc)
+//Kalıtım,abstact,interface
