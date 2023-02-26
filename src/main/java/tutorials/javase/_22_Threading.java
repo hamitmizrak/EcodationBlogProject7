@@ -26,7 +26,7 @@ import lombok.Setter;
 //anonymous
 
 
-//Kalıtımlama
+//Kalıtımlama ==> 1.YOL
 @AllArgsConstructor
 public class _22_Threading extends Thread{
 
@@ -49,7 +49,7 @@ public class _22_Threading extends Thread{
 }
 
 
-//interface
+//interface ==> 2.YOL
 @AllArgsConstructor
 class implementsThreading implements Runnable{
 
@@ -73,19 +73,34 @@ class implementsThreading implements Runnable{
 }
 
 class MainClass{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         //extends Thread
-        _22_Threading extendThread1=new _22_Threading("thread-1 ==> extends ");
-        _22_Threading extendThread2=new _22_Threading("thread-2 ==> extends");
+        _22_Threading extendThread1=new _22_Threading("extends-1 ==>  ");
+        _22_Threading extendThread2=new _22_Threading("extends-2 ==> ");
 
         //implements Thread
-        Thread implementsthread3=new Thread(new implementsThreading("thread-3 ==> implements ") );
-        Thread implementsthread4=new Thread(new implementsThreading("thread-4 ==> implements ") );
+        Thread implementsthread3=new Thread(new implementsThreading("implements-3 ==>  ") );
+        Thread implementsthread4=new Thread(new implementsThreading("implements-4 ==>  ") );
 
         extendThread1.start();
         extendThread2.start();
+
+        //join() => Öncelik bu threadler bitsin ondan sonra diğerleri başlasın (Threading group)
+        extendThread1.join();
+        extendThread2.join();
+
         implementsthread3.start();
+
+        //wait() => ikinci bir emre kadar threading çalışmasını istemiyorum
+        //notify: uyuyan güzel uyansın artık :)
+        for (int i = 1; i <=10 ; i++) {
+            if(i%2==0){
+                implementsthread4.wait();
+            }else{
+                implementsthread4.notify();
+            }
+        }
         implementsthread4.start();
     }
 }
