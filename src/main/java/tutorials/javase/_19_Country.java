@@ -45,3 +45,45 @@ class MainClass{
 // interface
 // JAVA 8 gelen özelliklerden
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -10,7 +10,7 @@ package tutorials.javase;
 
 //POJO: field+getter and setter
 //BEAN: POJO+constructor
-public class _19_WhatIsClass {
+public class _20_WhatIsClass {
 
     //field
     private String name;
@@ -20,11 +20,11 @@ public class _19_WhatIsClass {
 
     //kurucu metotlar: constructor
     //parametresiz constructor
-    public  _19_WhatIsClass(){
+    public _20_WhatIsClass(){
     }
 
     //parametreli constructor
-    public _19_WhatIsClass(String name, String surname) {
+    public _20_WhatIsClass(String name, String surname) {
         this.name = name;
         this.surname = surname;
     }
