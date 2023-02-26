@@ -26,7 +26,7 @@ public class NumberGuessingGame {
     private static void userSpecialNumber(){
         char c1='@';
         if(Character.isDigit(c1)){
-            System.out.println("SAyıdır");
+            System.out.println("Sayıdır");
         }else if(Character.isLetter(c1)){
             System.out.println("Harftir");
         }else{
@@ -34,7 +34,7 @@ public class NumberGuessingGame {
         }
     }
 
-    // step-2:  bilgisayar  1-10 arasında sayı üretsin bu tahmin edeceğimiz sayı oalcak (Random Object) metot
+    // step-2:  bilgisayar  1-10 arasında sayı üretsin bu tahmin edeceğimiz sayı olacak (Random Object) metot
     private int computerNumber() {
         Random random = new Random();
         int number = random.nextInt(10)+1;
@@ -53,12 +53,17 @@ public class NumberGuessingGame {
            int user=  game.userNumber();
             System.out.println(user);
         }*/
-
     }
 
-// result:  sayı tahmin sayımız 3 defa olmalıdır
-// result:  Ekranda kaçıncı tahminde bulduğumuzu bize söylesin.
+// Step- 3:
+// result:  sayı tahmin sayımız 4 defa olmalıdır.
+// NOT: Her yanlış tahminde  "C:\\io\\numberguessing.txt"; metin belgesine yanlış  tahminleri yazsın. yazarken  false ==> new BufferedWriter(new FileWriter(URL, false)))
+// NOT: tahmini yazarken hem okuma hem yazma işlemi var dikkat.
+
+// Step- 4:
+// result:  Ekranda kaçıncı tahminde bulduğumuzu bize söylesin. (kalan tahmini "C:\\io\\numberguessing.txt"; metin belgesine okuma işlemi yapsın)
+
+// Step- 5:
 // result:  Eğer doğru tahmin edersek, bize soru sorsun oyunu tekrar oynamak istiyor musunuz ?
-// result:  eğer cevabımız evetse oyuna tekrar oynatsın. eğer hayırsa şimdiye kadar bu oyunu kaç kere oynadığımızı bize söylesin.
-    
+// result:  eğer cevabımız evetse oyuna tekrar oynatsın. eğer hayırsa şimdiye kadar bu oyunu kaç kere oynadığımızı bize söylesin. (static değişkenle yapabiliriz).
 }
