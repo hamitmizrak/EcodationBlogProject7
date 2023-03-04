@@ -38,6 +38,9 @@ public class _26_CollectionList{
         numberList.add(5);
         numberList.add(4);
 
+        // ÖDEV: rastgele(1-9 arasında) 6 tane sayıyı List eklereyerek aşağıdaki bütün
+        // attributesları yapalım ?
+
         //eleman sayısı
         System.out.println(numberList.size());
         System.out.println(numberList.isEmpty());
