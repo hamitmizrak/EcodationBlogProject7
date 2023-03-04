@@ -61,10 +61,43 @@ public class _29_Java8Stream {
         });
     }
 
+
+    public static void streamLimit(){
+        strList()
+                .stream()
+                .sorted(Comparator.reverseOrder())
+                .distinct()
+                .limit(4)
+                .collect(Collectors.toList())
+                .forEach((temp)->{
+                    System.out.println(temp);
+                });
+    }
+
+
+    public static void streamCount(){
+       long data= strList().stream().filter((temp)->!"malatya".equals(temp)).count();
+        System.out.println(data);
+    }
+
+    //malatya geçmeyen illerin hepsini büyük harfle gösterin ?
+    public static void streamComplex(){
+        strList()
+                .stream()
+                .filter((temp)->!"malatya".equals(temp))
+                .map((temp)->temp.toUpperCase().substring(0,3))
+                .forEach((temp)->{
+            System.out.println(temp);
+        });
+    }
+
     public static void main(String[] args) {
         //streamForEach();
         //streamCollect();
-        streamSorted();
+        //streamSorted();
+        //streamLimit();
+        //streamCount();
+        streamComplex();
     }
 
 
