@@ -2,10 +2,7 @@ package tutorials.javase;
 
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 @Data
 public class _26_CollectionList{
@@ -32,7 +29,6 @@ public class _26_CollectionList{
     public static void main(String[] args) {
         List<Integer> numberList=new ArrayList<Integer>();
         //List<Integer> numberList=new LinkedList<>();
-
         numberList.add(10);
         numberList.add(4);
         numberList.add(6);
@@ -54,7 +50,7 @@ public class _26_CollectionList{
         System.out.println("lastIndexOf : "+numberList.lastIndexOf(4));
         System.out.println(numberList.toString());
         System.out.println(numberList.toArray());
-        System.out.println(numberList.subList(0,2));
+        System.out.println(numberList.subList(0,2)); //0<=X<=2-1
         System.out.println("**********iterative********************");
 
         //elemanları göster
@@ -91,10 +87,11 @@ public class _26_CollectionList{
         System.out.println("************Java 8 gelen forEach******************");
         numberList.forEach(System.out::println);
 
-
+        //Vector: Java 2 gelen özelliktir.
+        Vector<Integer> vector=new Vector();
+        vector.add(11);
 
     }
-
 }
 
 
