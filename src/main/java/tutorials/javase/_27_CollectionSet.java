@@ -27,9 +27,10 @@ public class _27_CollectionSet {
     Set: bir interfacedir.
     */
     public static void main(String[] args) {
-        Set<Integer> numberSet=new TreeSet<>();
+        //Set<Integer> numberSet=new TreeSet<>();
         //Set<Integer> numberSet=new LinkedHashSet<>();
-        //Set<Integer> numberList=new HashSet<>();
+        Set<Integer> numberSet=new HashSet<>();
+        numberSet.add(1);
         numberSet.add(10);
         numberSet.add(4);
         numberSet.add(6);
