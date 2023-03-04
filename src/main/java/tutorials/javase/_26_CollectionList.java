@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 @Data
@@ -30,6 +31,9 @@ public class _26_CollectionList{
     */
     public static void main(String[] args) {
         List<Integer> numberList=new ArrayList<Integer>();
+        //List<Integer> numberList=new LinkedList<>();
+
+
         numberList.add(10);
         numberList.add(4);
         numberList.add(6);
