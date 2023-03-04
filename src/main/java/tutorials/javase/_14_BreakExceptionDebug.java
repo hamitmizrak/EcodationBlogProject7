@@ -1,9 +1,6 @@
 package tutorials.javase;
 
 import java.rmi.ConnectException;
-import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
 
 
 //break-return-continue
@@ -15,7 +12,7 @@ import java.util.Date;
 
 public class _14_BreakExceptionDebug {
 
-    public static void main(String[] args) throws ConnectException, HamitMizrakException {
+    public static void main(String[] args) throws ConnectException, _00_HamitMizrakException {
 
         // Java Lang
         // Object
@@ -43,7 +40,7 @@ public class _14_BreakExceptionDebug {
             System.out.println("devam et");
         }else{
             //throw  new ConnectException("negatif bir yapı var bunu çözmelisin.");
-            throw  new HamitMizrakException("negatif bir yapı var bunu çözmelisin.");
+            throw  new _00_HamitMizrakException("negatif bir yapı var bunu çözmelisin.");
         }
 
     }

@@ -1,4 +1,4 @@
-package tutorials.javase;
+package tutorials.jav.examples;
 
 /*
 Kullanıcıdan alacağımız kendi ismizi String'e atayalım. ve adımlar aşağıda görmekteyiz;
