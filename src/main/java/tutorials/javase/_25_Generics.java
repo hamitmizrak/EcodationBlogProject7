@@ -34,7 +34,7 @@ class MainGenericsData{
         System.out.println(generics.getId()+" "+generics.getName());
 
         generics.isnotGenericsMethod("Merhabalar");
-        generics.genericsMethod("Diğer");
+        generics.genericsMethod('@');
     }
 }
 
