@@ -41,11 +41,9 @@ public class _28_CollectionMap {
             System.out.println(keyData);
         }
 
-
         for (String valueData :  numberMap.values()) {
             System.out.println(valueData);
         }
-
 
         for (Integer keyData :  numberMap.keySet()) {
             System.out.println(keyData+" => "+numberMap.get(keyData));
