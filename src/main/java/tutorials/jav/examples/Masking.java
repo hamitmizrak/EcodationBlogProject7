@@ -4,7 +4,12 @@ public class Masking {
 }
 
 
-   /* let usernameAndSurnameMasking = () => {
+   // Aşağıdaki javascript kodunu Java kodlarına çevirelim ?
+  //  console.log => Hamit Mızrak
+  //  H**** Mız***
+
+   /*
+       let usernameAndSurnameMasking = () => {
         const usernameAndSurname = prompt("Adınız ve Soyadınız");
 
         let username = usernameAndSurname.substring(0, usernameAndSurname.indexOf(" "));
@@ -19,4 +24,6 @@ public class Masking {
         }
         console.log(surname.toUpperCase());
         }
-        usernameAndSurnameMasking()*/
+        usernameAndSurnameMasking()
+
+     */

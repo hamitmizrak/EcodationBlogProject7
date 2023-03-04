@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class NumberGuessingGame {
     //Şimdilik kalan hak static yapacağım ancak bunu normalde Filen ile yapmalıyız.
-    private static int COUNTER = 4;
+    private static int COUNTER = 3;
 
     // Biz : sayı tahmin oyunu (bilgisayarın ürettiği sayıyı tahmin etmeye çalışalım.)
 
@@ -38,55 +38,61 @@ public class NumberGuessingGame {
     }
 
     // step-2:  bilgisayar  1-10 arasında sayı üretsin bu tahmin edeceğimiz sayı olacak (Random Object) metot
+    // Kullanıcıya soralım. Oyun zor mu? (z) olsun yada basit mi (b) olsun.
+    // Dikkat: validation kullanıcı girdiği büyük harf girerse her zaman küçük harfe çeviren (toLowercase()) metotudunu kullanalım.
+    // Eğer kullanıcı zor derse:  1.adım bilgisayar sürekli 1-10 arasında sayı üretsin
+    // Eğer kullanıcı kolay derse: bilgisayar oyunun başında sonuna kadar 1 kere sayı üretsin ve onu bulalım
     public static int computerNumber() {
         Random random = new Random();
         int number = random.nextInt(10) + 1;
         return number;
     }
 
-    public static void main() throws _00_HamitMizrakException {
-        Scanner klavye=new Scanner(System.in);
+    public static void mainMethod() throws _00_HamitMizrakException {
+        Scanner klavye = new Scanner(System.in);
         char conditional = 0;
 
-        while(true){
+        while (true) {
             int computerNumber = computerNumber();
-            System.out.println("Bilgisayar sayısı: "+computerNumber);
+            System.out.println("Bilgisayar sayısı: " + computerNumber);
             int userData = userNumber();
 
             if (COUNTER > 0) {
                 if (userData == computerNumber) {
-                    System.out.println("Doğru bildiniz "+(4-COUNTER)+" kerede bildiniz");
+                    System.out.println("Doğru bildiniz " + (4 - COUNTER) + " kerede bildiniz");
                     System.out.println(" Tekrar oynamak ister misiniz E veya H");
-                    conditional=klavye.nextLine().charAt(0);
-                    if(conditional=='E'){
-                        main();
-                    }else{
+                    conditional = klavye.nextLine().charAt(0);
+                    if (conditional == 'E') {
+                        mainMethod();
+                    } else {
                         System.out.println("Çıkış yapılıyor.");
                         System.exit(0);
                     }
                 } else {
                     COUNTER--;
-                    System.out.println("Kalan hakkınız: " + COUNTER);
+                    System.out.println("Kalan hakkınız: " + (COUNTER));
                 }
             } else {
                 if (COUNTER == 0) {
                     System.out.println("Hakkınız kalmadı Tekrar oynamak ister misiniz E veya H");
-                    conditional=klavye.nextLine().charAt(0);
-                    if(conditional=='E'){
+                    conditional = klavye.nextLine().charAt(0);
+                    if (conditional == 'E') {
 
-                    }else{
+                    } else {
                         System.out.println("Çıkış yapılıyor.");
                         System.exit(0);
                     }
-
                 }
             }
         }
     }
 
     public static void main(String[] args) throws _00_HamitMizrakException {
-      main();
+        mainMethod();
     }
+
+//DİKKAT: bilgisayar random sayısına eğer sayi>=+1 uzaksa yukarı ve aradaki fark az desin eğer sayi>=3  uzaksa çok uzak
+//DİKKAT: bilgisayar random sayısına eğer sayi>=-1 uzaksa aşağı ve aradaki fark az desin eğer sayi>=-3  uzaksa çok uzak
 
 // Step- 3:
 // result:  sayı tahmin sayımız 4 defa olmalıdır.
