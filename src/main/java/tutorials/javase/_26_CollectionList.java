@@ -33,7 +33,6 @@ public class _26_CollectionList{
         List<Integer> numberList=new ArrayList<Integer>();
         //List<Integer> numberList=new LinkedList<>();
 
-
         numberList.add(10);
         numberList.add(4);
         numberList.add(6);
