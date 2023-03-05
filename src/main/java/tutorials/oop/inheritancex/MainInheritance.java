@@ -12,11 +12,8 @@ public class MainInheritance {
         System.out.println(person);
 
         System.out.println("*********************");
-        Student student=new Student();
-        student.setId(1);
-        student.setUsername("Öğrenci adı-1");
-        student.setSurname("Öğrenci soyadı-1");
-        student.setCityName("İstanbul");
+        //long id, String username, String surname, String cityName, String schoolNumber
+        Student student=new Student(1,"Öğrenci adı-1","Öğrenci soyadı-1","İstanbul","4521515");
         student.govdeliMethod("Öğrenci");//polymorphism metot
         System.out.println(student);
         System.out.println("*********************");
