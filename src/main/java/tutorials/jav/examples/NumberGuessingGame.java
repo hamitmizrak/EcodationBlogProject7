@@ -31,6 +31,7 @@ public class NumberGuessingGame {
     //Devam etmek istiyor musunuz?
     private static boolean easyOrHard() {
         System.out.println("Oyun zor mu olsun kolay mı olsun k veya z");
+        //eğer kullanıcı kolay derse file dosyasına bilgisayarın üretttiği random sayıyı  bilgisayarda file dosyasına yazmamız gerekiyor.
         char conditional = 0;
         conditional = klavye.nextLine().charAt(0);
         if (conditional == 'K' || conditional == 'k') {
