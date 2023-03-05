@@ -14,9 +14,11 @@ abstract public class Person {
     private String surname;
     private String cityName;
 
+    //govdeliMethod
     public void govdeliMethod(String name){
         System.out.println("Gövdeli metot: "+name);
     }
 
+    //govdesizMethod
     abstract public void govdesizMethod(String name);
 }
