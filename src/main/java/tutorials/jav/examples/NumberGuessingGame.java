@@ -7,17 +7,47 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class NumberGuessingGame {
-    //Şimdilik kalan hak static yapacağım ancak bunu normalde Filen ile yapmalıyız.
+    //Global Field (Class Variable)
+    //final 3
     private static int COUNTER = 3;
+    private static Scanner klavye = new Scanner(System.in);
+
+    //Devam etmek istiyor musunuz?
+    private static boolean wantToContinue() {
+        //Scanner eğer static verirsek hata almamak için nextLine() yazmamız gerekiyor.
+        klavye.nextLine();
+        System.out.println("Tekrar oynamak ister misiniz E veya H");
+        char conditional = 0;
+        conditional = klavye.nextLine().charAt(0);
+        if (conditional == 'E' || conditional == 'e') {
+            return true;
+        } else {
+            System.out.println("Çıkış yapılıyor.");
+            System.exit(0);
+        }
+        return false;
+    }
+
+    //Devam etmek istiyor musunuz?
+    private static boolean easyOrHard() {
+        System.out.println("Oyun zor mu olsun kolay mı olsun k veya z");
+        char conditional = 0;
+        conditional = klavye.nextLine().charAt(0);
+        if (conditional == 'K' || conditional == 'k') {
+            return true;
+        } else {
+            System.out.println("Çıkış yapılıyor.");
+            System.exit(0);
+        }
+        return false;
+    }
 
     // Biz : sayı tahmin oyunu (bilgisayarın ürettiği sayıyı tahmin etmeye çalışalım.)
-
     // step-1:  kullanıcıdan aldığımız bir sayı(Scanner veya jOptionalPane) metotlar?
     // Validation: Kullanıcı negatif sayı giremez,
     // Validation: Kullanıcı sadece sayı girebilir. Eğer özel simge veya harf girerse bizi uyarsın,
     // Validation: Kullanıcı sadece sayı sınırı olsun 1-10000 arasında sadece sayı girebilir.
     public static int userNumber() throws _00_HamitMizrakException {
-        Scanner klavye = new Scanner(System.in);
         System.out.println("\nTahmin için bir sayı giriniz");
         int number = 0;
         try {
@@ -39,19 +69,28 @@ public class NumberGuessingGame {
 
     // step-2:  bilgisayar  1-10 arasında sayı üretsin bu tahmin edeceğimiz sayı olacak (Random Object) metot
     // Kullanıcıya soralım. Oyun zor mu? (z) olsun yada basit mi (b) olsun.
+
     // Dikkat: validation kullanıcı girdiği büyük harf girerse her zaman küçük harfe çeviren (toLowercase()) metotudunu kullanalım.
     // Eğer kullanıcı zor derse:  1.adım bilgisayar sürekli 1-10 arasında sayı üretsin
     // Eğer kullanıcı kolay derse: bilgisayar oyunun başında sonuna kadar 1 kere sayı üretsin ve onu bulalım
     public static int computerNumber() {
+        //Kolay mu , zor mu ?
         Random random = new Random();
         int number = random.nextInt(10) + 1;
         return number;
     }
 
+    //Main method
     public static void mainMethod() throws _00_HamitMizrakException {
-        Scanner klavye = new Scanner(System.in);
         char conditional = 0;
-
+        boolean result=  easyOrHard();
+        if(result){
+            //Kolay
+            System.out.println(result);
+        }else{
+            //zor olacak
+            System.out.println(result);
+        }
         while (true) {
             int computerNumber = computerNumber();
             System.out.println("Bilgisayar sayısı: " + computerNumber);
@@ -60,13 +99,8 @@ public class NumberGuessingGame {
             if (COUNTER > 0) {
                 if (userData == computerNumber) {
                     System.out.println("Doğru bildiniz " + (4 - COUNTER) + " kerede bildiniz");
-                    System.out.println(" Tekrar oynamak ister misiniz E veya H");
-                    conditional = klavye.nextLine().charAt(0);
-                    if (conditional == 'E') {
+                    if(wantToContinue()){
                         mainMethod();
-                    } else {
-                        System.out.println("Çıkış yapılıyor.");
-                        System.exit(0);
                     }
                 } else {
                     COUNTER--;
@@ -74,14 +108,9 @@ public class NumberGuessingGame {
                 }
             } else {
                 if (COUNTER == 0) {
-                    System.out.println("Hakkınız kalmadı Tekrar oynamak ister misiniz E veya H");
-                    conditional = klavye.nextLine().charAt(0);
-                    if (conditional == 'E') {
-
-                    } else {
-                        System.out.println("Çıkış yapılıyor.");
-                        System.exit(0);
-                    }
+                   if(wantToContinue()){
+                       mainMethod();
+                   }
                 }
             }
         }
