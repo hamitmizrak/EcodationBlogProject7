@@ -43,6 +43,15 @@ public class NumberGuessingGame {
         return false;
     }
 
+    //Dosya yaz metodu
+    private static void gameFileWriter(){
+
+    }
+    //Dosya oku metodu
+    private static void gameFileReader(){
+
+    }
+
     // Biz : sayı tahmin oyunu (bilgisayarın ürettiği sayıyı tahmin etmeye çalışalım.)
     // step-1:  kullanıcıdan aldığımız bir sayı(Scanner veya jOptionalPane) metotlar?
     // Validation: Kullanıcı negatif sayı giremez,
@@ -76,6 +85,7 @@ public class NumberGuessingGame {
     // Eğer kullanıcı kolay derse: bilgisayar oyunun başında sonuna kadar 1 kere sayı üretsin ve onu bulalım
     public static int computerNumber() {
         //Kolay mu , zor mu ?
+        //eğer kullanıcı kolay derse file dosyasına bilgisayarın üretttiği random sayıyı  bilgisayarda file dosyasına yazmamız gerekiyor.
         Random random = new Random();
         int number = random.nextInt(10) + 1;
         return number;
