@@ -2,6 +2,7 @@ package tutorials.jav.examples;
 
 import tutorials.javase._00_HamitMizrakException;
 
+import java.io.*;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -9,8 +10,10 @@ import java.util.Scanner;
 public class NumberGuessingGame {
     //Global Field (Class Variable)
     //final 3
-    private static int COUNTER = 3;
+    private static int COUNTER = 4;
     private static Scanner klavye = new Scanner(System.in);
+
+    private static final String URL = "C:\\io\\ecodation\\numberguessing.txt";
 
     //Devam etmek istiyor musunuz?
     private static boolean wantToContinue() {
@@ -20,6 +23,7 @@ public class NumberGuessingGame {
         char conditional = 0;
         conditional = klavye.nextLine().charAt(0);
         if (conditional == 'E' || conditional == 'e') {
+            COUNTER = 3;
             return true;
         } else {
             System.out.println("Çıkış yapılıyor.");
@@ -29,6 +33,7 @@ public class NumberGuessingGame {
     }
 
     //Devam etmek istiyor musunuz?
+    //eğer kolay seçersek return:true yoksa return:false
     private static boolean easyOrHard() {
         System.out.println("Oyun zor mu olsun kolay mı olsun k veya z");
         //eğer kullanıcı kolay derse file dosyasına bilgisayarın üretttiği random sayıyı  bilgisayarda file dosyasına yazmamız gerekiyor.
@@ -36,20 +41,41 @@ public class NumberGuessingGame {
         conditional = klavye.nextLine().charAt(0);
         if (conditional == 'K' || conditional == 'k') {
             return true;
-        } else {
-            System.out.println("Çıkış yapılıyor.");
-            System.exit(0);
         }
         return false;
     }
 
     //Dosya yaz metodu
-    private static void gameFileWriter(){
-
+    private static void gameFileWriter(String data) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(URL, false))) {
+            //String data = String.valueOf (Integer.valueOf(gameFileReader())-1) ;
+            bufferedWriter.write(data);
+            bufferedWriter.flush();
+            System.out.println("Başarılı bir şekilde yazıldı");
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
-    //Dosya oku metodu
-    private static void gameFileReader(){
 
+    //Dosya oku metodu
+    private static String gameFileReader() {
+        String data = "";
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(URL))) {
+            StringBuilder stringBuilder = new StringBuilder();
+            String rows = "";
+            while ((rows = bufferedReader.readLine()) != null) {
+                stringBuilder.append(rows);
+            }
+            data = stringBuilder.toString();
+            //System.out.println("Başarılı bir şekilde okundu");
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        return data;
     }
 
     // Biz : sayı tahmin oyunu (bilgisayarın ürettiği sayıyı tahmin etmeye çalışalım.)
@@ -92,36 +118,84 @@ public class NumberGuessingGame {
     }
 
     //Main method
+    //DİKKAT: bilgisayar random sayısına eğer sayi>=+1 uzaksa yukarı ve aradaki fark az desin eğer sayi>=3  uzaksa çok uzak
+    //DİKKAT: bilgisayar random sayısına eğer sayi>=-1 uzaksa aşağı ve aradaki fark az desin eğer sayi>=-3  uzaksa çok uzak
+
+    // Step- 3:
+    // result:  sayı tahmin sayımız 4 defa olmalıdır.
+    // NOT: Her yanlış tahminde  "C:\\io\\numberguessing.txt"; metin belgesine yanlış  tahminleri yazsın. yazarken  false ==> new BufferedWriter(new FileWriter(URL, false)))
+    // NOT: tahmini yazarken hem okuma hem yazma işlemi var dikkat.
+
+    // Step- 4:
+    // result:  Ekranda kaçıncı tahminde bulduğumuzu bize söylesin. (kalan tahmini "C:\\io\\numberguessing.txt"; metin belgesine okuma işlemi yapsın)
+
+    // Step- 5:
+    // result:  Eğer doğru tahmin edersek, bize soru sorsun oyunu tekrar oynamak istiyor musunuz ?
+    // result:  eğer cevabımız evetse oyuna tekrar oynatsın. eğer hayırsa şimdiye kadar bu oyunu kaç kere oynadığımızı bize söylesin. (static değişkenle yapabiliriz).
+
     public static void mainMethod() throws _00_HamitMizrakException {
         char conditional = 0;
-        boolean result=  easyOrHard();
-        if(result){
+        boolean result = easyOrHard();
+        if (result) {
             //Kolay
-            System.out.println(result);
-        }else{
-            //zor olacak
-            System.out.println(result);
-        }
-        while (true) {
-            int computerNumber = computerNumber();
-            System.out.println("Bilgisayar sayısı: " + computerNumber);
-            int userData = userNumber();
+            gameFileWriter(String.valueOf(computerNumber()));
+            int computerNumber = Integer.parseInt(gameFileReader());
 
-            if (COUNTER > 0) {
-                if (userData == computerNumber) {
-                    System.out.println("Doğru bildiniz " + (4 - COUNTER) + " kerede bildiniz");
-                    if(wantToContinue()){
-                        mainMethod();
+            while (true) {
+                System.out.println("Bilgisayar sayısı: " + computerNumber);
+                int userData = userNumber();
+                if (userData == computerNumber + 1 || userData == computerNumber - 1) {
+                    System.err.println("tahmin sayısı bilgisayar sayısına yakın");
+                } else if (userData == computerNumber + 3 || userData == computerNumber - 3 || userData >= computerNumber + 3 || userData <= computerNumber - 3) {
+                    System.err.println("tahmin sayısı bilgisayar sayısına uzak");
+                }
+                if (COUNTER > 0) {
+                    if (userData == computerNumber) {
+                        System.out.println("Doğru bildiniz " + (4 - COUNTER) + " kerede bildiniz");
+                        if (wantToContinue()) {
+                            mainMethod();
+                        }
+                    } else {
+                        COUNTER--;
+                        System.out.println("Kalan hakkınız: " + (COUNTER));
                     }
                 } else {
-                    COUNTER--;
-                    System.out.println("Kalan hakkınız: " + (COUNTER));
+                    if (COUNTER == 0) {
+                        if (wantToContinue()) {
+                            mainMethod();
+                        }
+                    }
                 }
-            } else {
-                if (COUNTER == 0) {
-                   if(wantToContinue()){
-                       mainMethod();
-                   }
+            }
+        } else {
+            //zor olacak
+            System.out.println(result);
+            while (true) {
+                int computerNumber = computerNumber();
+                System.out.println("Bilgisayar sayısı: " + computerNumber);
+                int userData = userNumber();
+
+                if (userData >= computerNumber + 1 || userData <= computerNumber - 1) {
+                    System.err.println("tahmin sayısı az");
+                } else if (userData >= computerNumber + 3 || userData <= computerNumber - 3) {
+                    System.err.println("tahmin sayısı fazla");
+                }
+                if (COUNTER > 0) {
+                    if (userData == computerNumber) {
+                        System.out.println("Doğru bildiniz " + (4 - COUNTER) + " kerede bildiniz");
+                        if (wantToContinue()) {
+                            mainMethod();
+                        }
+                    } else {
+                        COUNTER--;
+                        System.out.println("Kalan hakkınız: " + (COUNTER));
+                    }
+                } else {
+                    if (COUNTER == 0) {
+                        if (wantToContinue()) {
+                            mainMethod();
+                        }
+                    }
                 }
             }
         }
@@ -131,20 +205,6 @@ public class NumberGuessingGame {
         mainMethod();
     }
 
-//DİKKAT: bilgisayar random sayısına eğer sayi>=+1 uzaksa yukarı ve aradaki fark az desin eğer sayi>=3  uzaksa çok uzak
-//DİKKAT: bilgisayar random sayısına eğer sayi>=-1 uzaksa aşağı ve aradaki fark az desin eğer sayi>=-3  uzaksa çok uzak
-
-// Step- 3:
-// result:  sayı tahmin sayımız 4 defa olmalıdır.
-// NOT: Her yanlış tahminde  "C:\\io\\numberguessing.txt"; metin belgesine yanlış  tahminleri yazsın. yazarken  false ==> new BufferedWriter(new FileWriter(URL, false)))
-// NOT: tahmini yazarken hem okuma hem yazma işlemi var dikkat.
-
-// Step- 4:
-// result:  Ekranda kaçıncı tahminde bulduğumuzu bize söylesin. (kalan tahmini "C:\\io\\numberguessing.txt"; metin belgesine okuma işlemi yapsın)
-
-// Step- 5:
-// result:  Eğer doğru tahmin edersek, bize soru sorsun oyunu tekrar oynamak istiyor musunuz ?
-// result:  eğer cevabımız evetse oyuna tekrar oynatsın. eğer hayırsa şimdiye kadar bu oyunu kaç kere oynadığımızı bize söylesin. (static değişkenle yapabiliriz).
 }
 
 
