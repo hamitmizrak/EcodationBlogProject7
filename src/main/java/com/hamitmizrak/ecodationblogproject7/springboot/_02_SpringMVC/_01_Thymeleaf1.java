@@ -1,5 +1,6 @@
 package com.hamitmizrak.ecodationblogproject7.springboot._02_SpringMVC;
 
+import com.hamitmizrak.ecodationblogproject7.springboot.Admin;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +34,17 @@ public class _01_Thymeleaf1 {
     public String getThymeleaf3(Model model){//javadan html göndermek için
         model.addAttribute("ozelanahtar3","Ben javadan geldim");
         return "thmeleaf3";
+    }
+
+
+
+    // http://localhost:4444/thymeleaf4
+    @GetMapping("/thymeleaf4")
+    public String getThymeleaf5(Model model){//javadan html göndermek için
+
+        Admin  admin=new Admin(1L,"adi","soyadi");
+        model.addAttribute("ozelanahtar4",admin);
+        return "thmeleaf4";
     }
 
 }
