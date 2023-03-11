@@ -37,7 +37,7 @@ public class NumberGuessingGame {
     private static boolean easyOrHard() {
         System.out.println("Oyun zor mu olsun kolay mı olsun k veya z");
         //eğer kullanıcı kolay derse file dosyasına bilgisayarın üretttiği random sayıyı  bilgisayarda file dosyasına yazmamız gerekiyor.
-        char conditional = 0;
+        char conditional = 0;// '\u0000'
         conditional = klavye.nextLine().charAt(0);
         if (conditional == 'K' || conditional == 'k') {
             return true;
@@ -135,27 +135,35 @@ public class NumberGuessingGame {
 
     public static void mainMethod() throws _00_HamitMizrakException {
         char conditional = 0;
-        boolean result = easyOrHard();
+        boolean result = easyOrHard();//kolay=true  zor=false
         if (result) {
-            //Kolay
+            //Kolay derse: öncelikle dosya yazma veya okuma işlemleri yapacak.
+            //Yazma String olduğu için cast ettim.
             gameFileWriter(String.valueOf(computerNumber()));
+
+            //Okuma: String veridir.
             int computerNumber = Integer.parseInt(gameFileReader());
 
+            //sonsuz döngü
             while (true) {
                 System.out.println("Bilgisayar sayısı: " + computerNumber);
                 int userData = userNumber();
+                //Kullanıcı Bilgisayardan 1 fazla veya 1 eksikse
                 if (userData == computerNumber + 1 || userData == computerNumber - 1) {
-                    System.err.println("tahmin sayısı bilgisayar sayısına yakın");
+                    System.err.println("tahmin sayısı bilgisayar sayısına yakın tahmin ettiniz.");
                 } else if (userData == computerNumber + 3 || userData == computerNumber - 3 || userData >= computerNumber + 3 || userData <= computerNumber - 3) {
-                    System.err.println("tahmin sayısı bilgisayar sayısına uzak");
+                    System.err.println("tahmin sayısı bilgisayar sayısına uzak  tahmin ettiniz.");
                 }
+                //Kullanıcının hakkı kalmışsa devam et
                 if (COUNTER > 0) {
                     if (userData == computerNumber) {
                         System.out.println("Doğru bildiniz " + (4 - COUNTER) + " kerede bildiniz");
+                        //oyuna devam etmek istiyor musunuz ?
                         if (wantToContinue()) {
                             mainMethod();
                         }
                     } else {
+                        //Öncelikle kalan hakkı 1 azalt
                         COUNTER--;
                         System.out.println("Kalan hakkınız: " + (COUNTER));
                     }

@@ -5,7 +5,7 @@ package tutorials.jav.examples;
    Haftanın günlerini Enum olarak kullanalım
 
    STEP-2
-   Haftanın gününü array dizisinde saklayalım;
+   Haftanın gününü array dizisinde saklayalım.
 
    STEP-3
    Array dizisi List.of ile listeye çevirelim.
