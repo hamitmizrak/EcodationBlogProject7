@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class _01_Thymeleaf1 {
@@ -51,13 +52,14 @@ public class _01_Thymeleaf1 {
         return "thmeleaf4";
     }
 
-    // http://localhost:4444/thymeleaf4
+    // http://localhost:4444/thymeleaf5
     //OBJECT LIST
     @GetMapping("/thymeleaf5")
     public String getThymeleaf5(Model model){//javadan html göndermek için
         List<Admin> adminList=new ArrayList<>();
         for (long i = 1; i <=5 ; i++) {
-            Admin  admin=new Admin(i,"adi"+i,"soyadi"+i);
+            //Long id, String adminName, String adminSurname, String hescode
+            Admin  admin=new Admin(i,"adi"+i,"soyadi"+i,UUID.randomUUID().toString());
             adminList.add(admin);
         }
         model.addAttribute("ozelanahtar5",adminList);
