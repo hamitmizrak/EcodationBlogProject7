@@ -25,7 +25,7 @@ public class SpringBootBean {
     //Constructor
     @PostConstruct
     public void init(){
-        System.out.println("@PostConstruct constructor");
+        System.out.println("@PostConstruct constructor ");
     }
 
     public static void main(String[] args) {
