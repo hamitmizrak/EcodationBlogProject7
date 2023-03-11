@@ -11,7 +11,6 @@ import lombok.extern.log4j.Log4j2;
 @AllArgsConstructor
 @Log4j2
 @Builder
-@ToString
 public class SpringBeanDto {
     private Long id;
     private String beanName;
