@@ -211,8 +211,7 @@ public class NumberGuessingGame {
 
     public static void main(String[] args) throws _00_HamitMizrakException {
         mainMethod();
-    }
-
+    }   
 }
 
 
