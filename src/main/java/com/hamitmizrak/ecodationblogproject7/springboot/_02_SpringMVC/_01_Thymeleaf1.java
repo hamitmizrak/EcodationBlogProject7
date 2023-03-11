@@ -19,4 +19,10 @@ public class _01_Thymeleaf1 {
     public String getThymeleaf1(){
         return "thmeleaf1"; //html sayfasına gidiyor
     }
+
+    // http://localhost:4444/thymeleaf2
+    @GetMapping("/thymeleaf2")
+    public String getThymeleaf2(){
+        return "thmeleaf2";
+    }
 }
