@@ -1,6 +1,7 @@
 package com.hamitmizrak.ecodationblogproject7.springboot._02_SpringMVC;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -25,4 +26,13 @@ public class _01_Thymeleaf1 {
     public String getThymeleaf2(){
         return "thmeleaf2";
     }
+
+
+    // http://localhost:4444/thymeleaf3
+    @GetMapping("/thymeleaf3")
+    public String getThymeleaf3(Model model){//javadan html göndermek için
+        model.addAttribute("ozelanahtar3","Ben javadan geldim");
+        return "thmeleaf3";
+    }
+
 }
