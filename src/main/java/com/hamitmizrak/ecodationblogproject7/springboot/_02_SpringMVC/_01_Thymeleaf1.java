@@ -13,4 +13,10 @@ public class _01_Thymeleaf1 {
     public String getThymeleaf0(){
         return "Merhabalar ben htmlsiz görüntüyüm";
     }
+
+    // http://localhost:4444/thymeleaf1
+    @GetMapping("/thymeleaf1")
+    public String getThymeleaf1(){
+        return "thmeleaf1"; //html sayfasına gidiyor
+    }
 }
