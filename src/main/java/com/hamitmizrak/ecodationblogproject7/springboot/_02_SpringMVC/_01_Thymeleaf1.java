@@ -1,6 +1,6 @@
 package com.hamitmizrak.ecodationblogproject7.springboot._02_SpringMVC;
 
-import com.hamitmizrak.ecodationblogproject7.springboot.Admin;
+import com.hamitmizrak.ecodationblogproject7.springboot.AdminDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,37 +48,25 @@ public class _01_Thymeleaf1 {
     //OBJECT
     @GetMapping("/thymeleaf4")
     public String getThymeleaf4(Model model){//javadan html göndermek için
-        Admin  admin=new Admin(1L,"adi","soyadi");
-        model.addAttribute("ozelanahtar4",admin);
+        AdminDto adminDto =new AdminDto(1L,"adi","soyadi");
+        model.addAttribute("ozelanahtar4", adminDto);
         return "thmeleaf4";
     }
 
+    //MODEL
     // http://localhost:4444/thymeleaf5
     //OBJECT LIST FOR IF
     @GetMapping("/thymeleaf5")
     public String getThymeleaf5(Model model){//javadan html göndermek için
-        List<Admin> adminList=new ArrayList<>();
+        List<AdminDto> adminDtoList =new ArrayList<>();
         for (long i = 1; i <=10 ; i++) {
             //Long id, String adminName, String adminSurname, String hescode
             Random random=new Random();
             boolean isActive= random.nextBoolean();
-            Admin  admin=new Admin(i,"adi"+i,"soyadi"+i,UUID.randomUUID().toString(),i*10,String.valueOf(isActive));
-            adminList.add(admin);
+            AdminDto adminDto =new AdminDto(i,"adi"+i,"soyadi"+i,UUID.randomUUID().toString(),i*10,String.valueOf(isActive));
+            adminDtoList.add(adminDto);
         }
-        model.addAttribute("ozelanahtar5",adminList);
+        model.addAttribute("ozelanahtar5", adminDtoList);
         return "thmeleaf5";
-    }
-
-
-    public static void main(String[] args) {
-        List<Admin> adminList=new ArrayList<>();
-        for (long i = 1; i <=10 ; i++) {
-            //Long id, String adminName, String adminSurname, String hescode
-            Random random=new Random();
-            boolean isActive= random.nextBoolean();
-            System.out.println(isActive);
-            Admin  admin=new Admin(i,"adi"+i,"soyadi"+i,UUID.randomUUID().toString(),i*10,String.valueOf(isActive));
-            adminList.add(admin);
-        }
     }
 }
