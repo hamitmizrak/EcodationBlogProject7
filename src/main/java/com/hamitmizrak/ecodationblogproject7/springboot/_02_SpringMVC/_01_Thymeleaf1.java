@@ -69,7 +69,7 @@ public class _01_Thymeleaf1 {
         return "thmeleaf5";
     }
 
-
+///////////////////////////////////////////////////////////////////////////////////
     // PathVariable
     // http://localhost:4444/thymeleaf6/1
     @GetMapping("/thymeleaf6/{id}")
