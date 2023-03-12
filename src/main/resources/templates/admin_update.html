@@ -35,82 +35,81 @@
 </head>
 
 <body class="container">
-<!-- start codes -->
-<br><br>
+    <!-- start codes -->
+    <br><br>
 
-<p class="display-2 text-center">ADMIN UPDATE</p>
-<form>
-    <div class="form-group mb-3">
-        <label for="adminName">adminName</label>
-        <input type="text" class="form-control" id="adminName"  placeholder="adminName">
-        <small  class="form-text text-danger">adminName</small>
-    </div>
+    <p class="display-2 text-center">ADMIN UPDATE</p>
+    <form>
+        <div class="form-group mb-3">
+            <label for="adminName">adminName</label>
+            <input type="text" class="form-control" id="adminName" placeholder="adminName">
+            <small class="form-text text-danger">adminName</small>
+        </div>
 
-    <div class="form-group mb-3">
-        <label for="adminSurname">adminSurname</label>
-        <input type="text" class="form-control" id="adminSurname"  placeholder="adminSurname">
-        <small  class="form-text text-danger">adminSurname</small>
-    </div>
+        <div class="form-group mb-3">
+            <label for="adminSurname">adminSurname</label>
+            <input type="text" class="form-control" id="adminSurname" placeholder="adminSurname">
+            <small class="form-text text-danger">adminSurname</small>
+        </div>
 
-    <div class="form-group mb-3">
-        <label for="hescode">hescode</label>
-        <input type="text" class="form-control" id="hescode"  placeholder="hescode">
-        <small  class="form-text text-danger">hescode</small>
-    </div>
+        <div class="form-group mb-3">
+            <label for="hescode">hescode</label>
+            <input type="text" class="form-control" id="hescode" placeholder="hescode">
+            <small class="form-text text-danger">hescode</small>
+        </div>
 
-    <div class="form-group mb-3">
-        <label for="price">price</label>
-        <input type="number" class="form-control" id="price" step="1" min="10" max="100"  placeholder="price">
-        <small  class="form-text text-danger">price</small>
-    </div>
+        <div class="form-group mb-3">
+            <label for="price">price</label>
+            <input type="number" class="form-control" id="price" step="1" min="10" max="100" placeholder="price">
+            <small class="form-text text-danger">price</small>
+        </div>
 
-    <div class="form-group mb-3">
-        <label for="isActive">isActive</label>
-        <input type="checkbox"  id="isActive"  placeholder="isActive">
-        <small  class="form-text text-danger">isActive</small>
-    </div>
+        <div class="form-group mb-3">
+            <label for="isActive">isActive</label>
+            <input type="checkbox" id="isActive" placeholder="isActive">
+            <small class="form-text text-danger">isActive</small>
+        </div>
 
-    <div class="form-group mt-3">
-        <input type="reset" class="btn btn-danger" value="Temizle"></input>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="" class="btn btn-warning">ADMIN </a>
-    </div>
-</form>
+        <div class="form-group mt-3">
+            <input type="reset" class="btn btn-danger" value="Temizle"></input>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="" class="btn btn-warning">ADMIN </a>
+        </div>
+    </form>
 
 
-<!--Sweet Alert-->
-<!--Link: https://sweetalert2.github.io/#examples-->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-<script type="text/javascript">
-    function deleteSweetAlertRegister(url) {
-        swal({
-            position: 'top-end',
-            showConfirmButton: true,
-            title: "Silmek istediğinizden emin misiniz?",
-            text: "Silindikten sonra tekrar geri alınamaz.",
-            icon: "warning",
-            buttons: ["İptal", "Sil"],
-            dangerMode: true,
+    <!--Sweet Alert-->
+    <!--Link: https://sweetalert2.github.io/#examples-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.fire({
+            title: 'Do you want to save the changes?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Save',
+            denyButtonText: `Don't save`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Swal.fire('Saved!', '', 'success')
+            } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info')
+            }
         })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal("Kayıt başarılı bir şekilde silindi.", {
-                        icon: "success",
-                    });
-                    window.location.href = url;
-                } else {
-                    swal("İptal edildi.", {
-                        icon: "warning",
-                    });
-                }
-            });
-    }</script>
+    </script>
 
-<!--  Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
-<!-- ends codes -->
+    <!-- Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'Your work has been saved',
+    showConfirmButton: false,
+    timer: 1500
+  }) -->
+
+    <!--  Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <!-- ends codes -->
 </body>
 
 </html>
