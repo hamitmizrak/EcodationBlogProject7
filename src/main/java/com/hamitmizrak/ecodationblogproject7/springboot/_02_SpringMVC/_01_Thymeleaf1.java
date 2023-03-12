@@ -53,7 +53,7 @@ public class _01_Thymeleaf1 {
     }
 
     // http://localhost:4444/thymeleaf5
-    //OBJECT LIST
+    //OBJECT LIST FOR IF
     @GetMapping("/thymeleaf5")
     public String getThymeleaf5(Model model){//javadan html göndermek için
         List<Admin> adminList=new ArrayList<>();

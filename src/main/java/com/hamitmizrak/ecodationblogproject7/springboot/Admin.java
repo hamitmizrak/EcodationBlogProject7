@@ -18,6 +18,7 @@ public class Admin {
     private String adminName;
     private String adminSurname;
     private String hescode;
+    private double price;
     private Date date=new Date(System.currentTimeMillis());
 
     public Admin(Long id, String adminName, String adminSurname) {
