@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 @Controller
@@ -59,11 +60,25 @@ public class _01_Thymeleaf1 {
         List<Admin> adminList=new ArrayList<>();
         for (long i = 1; i <=10 ; i++) {
             //Long id, String adminName, String adminSurname, String hescode
-            Admin  admin=new Admin(i,"adi"+i,"soyadi"+i,UUID.randomUUID().toString(),i*10);
+            Random random=new Random();
+            boolean isActive= random.nextBoolean();
+            Admin  admin=new Admin(i,"adi"+i,"soyadi"+i,UUID.randomUUID().toString(),i*10,String.valueOf(isActive));
             adminList.add(admin);
         }
         model.addAttribute("ozelanahtar5",adminList);
         return "thmeleaf5";
     }
 
+
+    public static void main(String[] args) {
+        List<Admin> adminList=new ArrayList<>();
+        for (long i = 1; i <=10 ; i++) {
+            //Long id, String adminName, String adminSurname, String hescode
+            Random random=new Random();
+            boolean isActive= random.nextBoolean();
+            System.out.println(isActive);
+            Admin  admin=new Admin(i,"adi"+i,"soyadi"+i,UUID.randomUUID().toString(),i*10,String.valueOf(isActive));
+            adminList.add(admin);
+        }
+    }
 }

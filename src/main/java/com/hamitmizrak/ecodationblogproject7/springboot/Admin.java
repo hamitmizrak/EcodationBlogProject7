@@ -19,19 +19,23 @@ public class Admin {
     private String adminSurname;
     private String hescode;
     private double price;
+    private String isActive;
     private Date date=new Date(System.currentTimeMillis());
 
+    //constructor parametreli(overloading)
     public Admin(Long id, String adminName, String adminSurname) {
         this.id = id;
         this.adminName = adminName;
         this.adminSurname = adminSurname;
     }
 
-    public Admin(Long id, String adminName, String adminSurname, String hescode,double price) {
+    //constructor parametreli(overloading)
+    public Admin(Long id, String adminName, String adminSurname, String hescode,double price,String isActive) {
         this.id = id;
         this.adminName = adminName;
         this.adminSurname = adminSurname;
         this.hescode = hescode;
         this.price=price;
+        this.isActive=isActive;
     }
 }
