@@ -41,10 +41,34 @@
     <!--<h1 th:text="${ozelanahtar5}" class="text-primary"></h1>-->
 
    <!--
-    STEP:1 => Admin.java yeni bir attibutes field ekliyelim (isActive:String)
-    STEP:2 => messages.properties  is_active=Aktif  adında yeni field ekleyelim
-    STEP:3 => _01_Thmeleaf1.java: rastgele isActive true veya false ekleyin.
+    STEP:1 => Admin.java  attibutes field ekliyelim (isActive:String)
+    private Long id;
+    private String adminName;
+    private String adminSurname;
+    private String hescode;
+    private double price;
+    private String isActive;
+    private Date date
+
+    STEP:2 => messages.properties   yeni field ekleyelim
+    customer.id=ID
+    customer.name=Adi
+    customer.surname=Soyadi
+    customer.hescode=Hescode
+    customer.price=Fiyat
+    customer.situation=Durum
+    customer.is_active=Aktiflik
+    customer.date=Tarih
+    customer.update=Guncel
+    customer.view=Goster
+    customer.delete=Sil
+
+    STEP:3 => _01_Thmeleaf1.java: dataset oluşturalım.
+
     STEP:4 => thymeleaf5.html true:aktif false:pasif yazsın
+     - eğer price 50  eşit veya büyük olanalara Büyük yazsın
+     - eğer isActive true= Aktif false= Pasif yazdırsın.
+
     -->
   <!--  <td th:text="${ozelanahtar5}"></td>-->
     <table class="table table-hover table-striped">
