@@ -1,5 +1,4 @@
 package com.hamitmizrak.ecodationblogproject7.springboot._02_SpringMVC;
-
 import com.hamitmizrak.ecodationblogproject7.springboot.AdminDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,9 +11,14 @@ import java.util.UUID;
 @Controller
 public class admin {
 
-    // MODEL
+    //HIZLI EKLE 27 04
+
+    //BÜTÜN VERI SİL
+
+    //CREATE
+
+    // LIST
     // http://localhost:4444/admin
-    //OBJECT LIST FOR IF
     @GetMapping("/admin")
     public String getAdmin(Model model){//javadan html göndermek için
         List<AdminDto> adminDtoList =new ArrayList<>();
@@ -28,4 +32,10 @@ public class admin {
         model.addAttribute("admin_key", adminDtoList);
         return "admin";
     }
+
+
+    //UPDATE
+    //DELETE
+
+
 }
