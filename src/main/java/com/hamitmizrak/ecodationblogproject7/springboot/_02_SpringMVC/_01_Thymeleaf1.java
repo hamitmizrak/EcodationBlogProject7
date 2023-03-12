@@ -57,9 +57,9 @@ public class _01_Thymeleaf1 {
     @GetMapping("/thymeleaf5")
     public String getThymeleaf5(Model model){//javadan html göndermek için
         List<Admin> adminList=new ArrayList<>();
-        for (long i = 1; i <=5 ; i++) {
+        for (long i = 1; i <=10 ; i++) {
             //Long id, String adminName, String adminSurname, String hescode
-            Admin  admin=new Admin(i,"adi"+i,"soyadi"+i,UUID.randomUUID().toString());
+            Admin  admin=new Admin(i,"adi"+i,"soyadi"+i,UUID.randomUUID().toString(),i*10);
             adminList.add(admin);
         }
         model.addAttribute("ozelanahtar5",adminList);

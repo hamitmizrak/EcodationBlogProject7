@@ -27,10 +27,11 @@ public class Admin {
         this.adminSurname = adminSurname;
     }
 
-    public Admin(Long id, String adminName, String adminSurname, String hescode) {
+    public Admin(Long id, String adminName, String adminSurname, String hescode,double price) {
         this.id = id;
         this.adminName = adminName;
         this.adminSurname = adminSurname;
         this.hescode = hescode;
+        this.price=price;
     }
 }
