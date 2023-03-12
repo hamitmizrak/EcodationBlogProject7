@@ -26,13 +26,13 @@ public class _01_Thymeleaf1 {
     // http://localhost:4444/thymeleaf1
     @GetMapping("/thymeleaf1")
     public String getThymeleaf1(){
-        return "thmeleaf1"; //html sayfasına gidiyor
+        return "thymeleaf1"; //html sayfasına gidiyor
     }
 
     // http://localhost:4444/thymeleaf2
     @GetMapping("/thymeleaf2")
     public String getThymeleaf2(){
-        return "thmeleaf2";
+        return "thymeleaf2";
     }
 
     // http://localhost:4444/thymeleaf3
@@ -40,7 +40,7 @@ public class _01_Thymeleaf1 {
     @GetMapping("/thymeleaf3")
     public String getThymeleaf3(Model model){//javadan html göndermek için
         model.addAttribute("ozelanahtar3","Ben javadan geldim");
-        return "thmeleaf3";
+        return "thymeleaf3";
     }
 
     // http://localhost:4444/thymeleaf4
@@ -49,7 +49,7 @@ public class _01_Thymeleaf1 {
     public String getThymeleaf4(Model model){//javadan html göndermek için
         AdminDto adminDto =new AdminDto(1L,"adi","soyadi");
         model.addAttribute("ozelanahtar4", adminDto);
-        return "thmeleaf4";
+        return "thymeleaf4";
     }
 
     //MODEL
@@ -66,7 +66,7 @@ public class _01_Thymeleaf1 {
             adminDtoList.add(adminDto);
         }
         model.addAttribute("ozelanahtar5", adminDtoList);
-        return "thmeleaf5";
+        return "thymeleaf5";
     }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -76,7 +76,7 @@ public class _01_Thymeleaf1 {
     public String getThymeleaf6(Model model, @PathVariable(name="id") Long id){//javadan html göndermek için
         AdminDto adminDto =new AdminDto(id,"adi","soyadi",UUID.randomUUID().toString(),10,"true");
         model.addAttribute("ozelanahtar6", adminDto);
-        return "thmeleaf6";
+        return "thymeleaf6";
     }
 
 
@@ -90,21 +90,26 @@ public class _01_Thymeleaf1 {
     ){//javadan html göndermek için
         AdminDto adminDto =new AdminDto(id,name,"soyadi",UUID.randomUUID().toString(),10,"true");
         model.addAttribute("ozelanahtar7", adminDto);
-        return "thmeleaf7";
+        return "thymeleaf7";
     }
 
 
     // PathVariable Validation
-    // http://localhost:4444/thymeleaf8/
+    // http://localhost:4444/thymeleaf8
     // http://localhost:4444/thymeleaf8/0
     // http://localhost:4444/thymeleaf8/1
     @GetMapping({"/thymeleaf8","/thymeleaf8/{id}"})
     public String getThymeleaf8(Model model, @PathVariable(name="id",required = false) Long id){//javadan html göndermek için
-        AdminDto adminDto =new AdminDto(id,"adi","soyadi",UUID.randomUUID().toString(),10,"true");
-        model.addAttribute("ozelanahtar8", adminDto);
-        return "thmeleaf8";
+        if(id==null){
+            model.addAttribute("validation_key", "404 Not Found");
+        } else if(id==0){
+            model.addAttribute("validation_key", "403 Bad Request");
+        }else{
+            AdminDto adminDto =new AdminDto(id,"adi","soyadi",UUID.randomUUID().toString(),10,"true");
+            model.addAttribute("ozelanahtar8", adminDto);
+        }
+        return "thymeleaf8";
     }
-
 
     // RequestParam
     // http://localhost:4444/thymeleaf9?id=2&name=adi2
@@ -115,7 +120,7 @@ public class _01_Thymeleaf1 {
     ){
         AdminDto adminDto =new AdminDto(id,name,"soyadi",UUID.randomUUID().toString(),10,"true");
         model.addAttribute("ozelanahtar9", adminDto);
-        return "thmeleaf9";
+        return "thymeleaf9";
     }
 
 
