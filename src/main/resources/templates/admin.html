@@ -105,6 +105,33 @@
             });*/
         });
     </script>
+
+    <!--Sweet Alert-->
+    <!--Link: https://sweetalert2.github.io/#examples-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        function deleteSweetAlertRegister(url){
+            swal({
+                position: 'top-end',
+                showConfirmButton: true,
+                title: "Silmek istediğinizden emin misiniz?",
+                text: "Silindikten sonra tekrar geri alınamaz.",
+                icon: "warning",
+                buttons: ["İptal", "Sil"],
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {        swal("Kayıt başarılı bir şekilde silindi.", {
+                        icon: "success",
+                    });
+                        window.location.href = url;
+                    } else {
+                        swal("İptal edildi.",{
+                            icon: "warning",
+                        });
+                    }
+                });
+        }</script>
     <!-- ends codes -->
 </body>
 </html>
