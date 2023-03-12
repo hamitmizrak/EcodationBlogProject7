@@ -80,12 +80,13 @@
                 <td th:text="${customer.getDate().toString().substring(0,16)}"></td>
                 <td> <a href=""><i class="text-primary fa-solid fa-wrench"></i></a>  </td>
                 <td> <a href=""><i class="text-warning fa-solid fa-expand"></i></a> </td>
-                <td> <a href=""><i class="text-danger fa-solid fa-trash"></i></a> </td>
+                <td>
+                    <a th:onclick="deleteSweetAlertRegister('')"><i class="fa-solid fa-trash text-danger"></i>
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>
-
-
 
     <!--datatables-->
     <!--Link: https://datatables.net/download/-->
