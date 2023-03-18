@@ -63,4 +63,13 @@ public class AdminDto {
         this.price = price;
         this.isActive = isActive;
     }
+
+    public AdminDto(Long id, String adminName, String adminSurname, String hescode, double price, String isActive) {
+        this.id = id;
+        this.adminName = adminName;
+        this.adminSurname = adminSurname;
+        this.hescode = hescode;
+        this.price = price;
+        this.isActive = isActive;
+    }
 }
