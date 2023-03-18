@@ -33,9 +33,6 @@ public class admin {
         return "admin";
     }
 
-
     //UPDATE
     //DELETE
-
-
 }
