@@ -45,17 +45,19 @@
     <table class="table table-hover table-striped table-bordered table-dark table-sm" style="cursor:pointer;" id="datalistregisterTable">
         <thead>
             <tr>
-                <th th:text="#{customer.id}"></th>
-                <th th:text="#{customer.name}"></th>
-                <th th:text="#{customer.surname}"></th>
-                <th th:text="#{customer.hescode}"></th>
-                <th th:text="#{customer.price}"></th>
-                <th th:text="#{customer.situation}"></th>
-                <th th:text="#{customer.is_active}"></th>
-                <th th:text="#{customer.date}"></th>
-                <th th:text="#{customer.update}"></th>
-                <th th:text="#{customer.view}"></th>
-                <th th:text="#{customer.delete}"></th>
+                <th th:text="#{admin.id}"></th>
+                <th th:text="#{admin.name}"></th>
+                <th th:text="#{admin.surname}"></th>
+                <th th:text="#{admin.password}"></th>
+                <th th:text="#{admin.email}"></th>
+                <th th:text="#{admin.hescode}"></th>
+                <th th:text="#{admin.price}"></th>
+                <th th:text="#{admin.situation}"></th>
+                <th th:text="#{admin.is_active}"></th>
+                <th th:text="#{admin.date}"></th>
+                <th th:text="#{admin.update}"></th>
+                <th th:text="#{admin.view}"></th>
+                <th th:text="#{admin.delete}"></th>
             </tr>
         </thead>
 
@@ -64,6 +66,8 @@
                 <td th:text="${customer.id}"></td>
                 <td th:text="${customer.getAdminName()}"></td>
                 <td th:text="${customer.getAdminSurname()}"></td>
+                <td th:text="${customer.getAdminPassword()}"></td>
+                <td th:text="${customer.getAdminEmail()()}"></td>
                 <td th:text="${customer.getHescode()}"></td>
                 <td th:text="${customer.getPrice()}"></td>
                 <td th:if="${customer.getPrice()>=50}" th:text="Büyük"></td>

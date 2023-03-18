@@ -7,7 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-
 import java.util.Date;
 
 @Data
@@ -28,7 +27,6 @@ public class AdminDto {
     @NotEmpty(message = "Admin email boş geçemezsiniz")
     @Email(message = "uygun formatta email girmediniz.")
     private String adminEmail;
-
 
     @NotEmpty(message = "Admin şifre boş geçemezsiniz")
     @Size(min = 7,max = 50,message = "Lütfen en az 7 en fazla 50 olacak şekilde şifre giriniz")
@@ -54,12 +52,15 @@ public class AdminDto {
     }
 
     //constructor parametreli(overloading)
-    public AdminDto(Long id, String adminName, String adminSurname, String hescode, double price, String isActive) {
+
+    public AdminDto(Long id, String adminName, String adminSurname, String adminEmail, String adminPassword, String hescode, double price, String isActive) {
         this.id = id;
         this.adminName = adminName;
         this.adminSurname = adminSurname;
+        this.adminEmail = adminEmail;
+        this.adminPassword = adminPassword;
         this.hescode = hescode;
-        this.price=price;
-        this.isActive=isActive;
+        this.price = price;
+        this.isActive = isActive;
     }
 }

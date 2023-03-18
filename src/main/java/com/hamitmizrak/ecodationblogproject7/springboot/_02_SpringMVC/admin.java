@@ -26,7 +26,9 @@ public class admin {
             //Long id, String adminName, String adminSurname, String hescode
             Random random=new Random();
             boolean isActive= random.nextBoolean();
-            AdminDto adminDto =new AdminDto(i,"adi"+i,"soyadi"+i,UUID.randomUUID().toString(),i*10,String.valueOf(isActive));
+            //  String hescode, double price, String isActive
+            //Long id, String adminName, String adminSurname, String adminEmail, String adminPassword, String hescode, double price, String isActive
+            AdminDto adminDto =new AdminDto(i,"adi"+i,"soyadi"+i,"email@"+i,UUID.randomUUID().toString(),"hescode"+i, 100*i, String.valueOf(isActive));
             adminDtoList.add(adminDto);
         }
         model.addAttribute("admin_key", adminDtoList);
