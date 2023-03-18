@@ -1,0 +1,129 @@
+<!doctype html>
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf String</title>
+
+    <!-- Turkce karakter -->
+    <meta charset="utf-8">
+
+    <!-- responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- seo -->
+    <meta name="keywords" content="html5,css3,js,jquery,bootstrap,react,javase"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+
+    <!-- jquery  -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- react libraries -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <script th:src="@{/js/index.js}"></script>
+
+    <!-- dataTables CSS: paging and sorting -->
+    <link rel="stylesheet"     type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.css" />
+</head>
+
+<body class="container">
+<!-- starts codes -->
+<a th:href="@{/speed}" class="btn btn-warning btn-sm mt-5 mb-5">Hızlı Veri Ekle</a>
+<a th:href="@{/save/register}" class="btn btn-primary btn-sm mt-5 mb-5">Üye  Ekle</a>
+<table class="table table-hover table-striped table-bordered table-dark table-sm" style="cursor:pointer;" id="datalistregisterTable">
+    <thead>
+    <tr>
+        <th  th:text="#{data.id}"></th>
+        <th  th:text="#{data.name}"></th>
+        <th  th:text="#{data.surname}"></th>
+        <th  th:text="#{data.password}"></th>
+        <th  th:text="#{data.email}"></th>
+        <th  th:text="#{data.telephone}"></th>
+        <th  th:text="#{data.created}"></th>
+        <th>Update</th>
+        <th>Show</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="register:${register_list}">
+        <td th:text="${register.id}"></td>
+        <td th:text="${register.name}"></td>
+        <td th:text="${register.surname}"></td>
+        <td th:text="${register.password}"></td>
+        <td th:text="${register.email}"></td>
+        <td th:text="${register.telephone}"></td>
+        <td th:text="${register.systemCreatedDate}"></td>
+        <td> <a th:href="@{/update/register/{id}(id=${register.id})}"><i class="fa-solid fa-wrench  text-primary"></i></a> </td>
+        <td> <a th:href="@{/find/register/{id}(id=${register.id})}"><i class="fa-regular fa-eye-slash text-info"></i></a> </td>
+        <!--<td> <a th:href="@{/delete/register/{id}(id=${register.id})}" th:onclick="if(!(confirm('Silmek istiyor musunuz'))) return false"><i class="fa-solid fa-trash text-danger"></i></a> </td>-->
+        <td>
+        <a
+        th:onclick="
+        '
+        deleteSweetAlertRegister(\'/delete/register/'+${register.id}+'\')
+        '
+        "><i class="fa-solid fa-trash text-danger"></i>
+        </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!--datatables-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#datalistregisterTable").DataTable({
+            'aoColumnDefs': [{
+                'bSortable': false,
+                'aTargets': [-1] /* 1st one, start by the right */
+            }]
+        });
+    })
+</script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    function deleteSweetAlertRegister(url){
+        swal({
+            position: 'top-end',
+            showConfirmButton: true,
+            title: "Silmek istediğinizden emin misiniz?",
+            text: "Silindikten sonra tekrar geri alınamaz.",
+            icon: "warning",
+            buttons: ["İptal", "Sil"],
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {        swal("Kayıt başarılı bir şekilde silindi.", {
+                    icon: "success",
+                });
+                    window.location.href = url;
+                } else {
+                    swal("İptal edildi.",{
+                        icon: "warning",
+                    });
+                }
+            });
+    }</script>
+
+<!-- ends codes -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,7 +1,9 @@
 package com.hamitmizrak.ecodationblogproject7.springboot._01_core;
-import jakarta.annotation.PostConstruct;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.annotation.PostConstruct;
+
 @Configuration
 public class SpringBootBean {
 
