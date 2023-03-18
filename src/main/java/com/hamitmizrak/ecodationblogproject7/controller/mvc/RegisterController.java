@@ -12,10 +12,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 //Lombok
 @RequiredArgsConstructor
@@ -53,14 +55,14 @@ public class RegisterController {
     }
 
     //CREATE
-    //http://localhost:8080/save/register
+    //http://localhost:4444/save/register
     @GetMapping("save/register")
     public String createGet(Model model) {
         model.addAttribute("register_key", new RegisterDto());
         return "register_create";
     }
 
-    //http://localhost:8080/save/register
+    //http://localhost:4444/save/register
     @PostMapping("save/register")
     //@Transactional//Veri güvenliğini ve veri tutarlılığı için
     public String createPost(@Valid @ModelAttribute("register_key") RegisterDto productDto, BindingResult bindingResult, Model model) {
@@ -73,9 +75,20 @@ public class RegisterController {
         return "redirect:/list/register";
     }
 
-
-
     //FIND
+    //http://localhost:4444/find/register
+    //http://localhost:4444/find/register/1
+    @GetMapping({"find/register","find/register/{id}"})
+    public String getFindRegister(@PathVariable("id") Long id,Model model){
+        Optional<RegisterEntity> findEntity= iRegisterRepository.findById(id);
+        if(findEntity.isPresent()){
+            model.addAttribute("find_key",findEntity.get());
+            return "register_detail";
+        }else{
+            model.addAttribute("find_key",id+" nolu veri bulunamadı");
+        }
+        return "redirect:/list/register";
+    }
 
     //DELETE
 
