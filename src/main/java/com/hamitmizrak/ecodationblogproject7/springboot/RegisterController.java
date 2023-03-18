@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.UUID;
 
 
 //Lombok
@@ -20,20 +21,24 @@ import javax.validation.Valid;
 //controller
 @Controller
 //@RequestMapping("register")
-public class RegisterController  {
+public class RegisterController {
 
     //Speed
     //http://localhost:4444/speed
     @GetMapping("speed")
     public String createSpeed(Model model) {
         for (int i = 1; i <= 5; i++) {
-
+            RegisterDto registerDto = RegisterDto.builder()
+                    .name("adi" + i)
+                    .surname("soyadı" + i)
+                    .email("email" + i + "gmail.com")
+                    .password(UUID.randomUUID().toString())
+                    .build();
         }
-        return "redirect:/list/register";
+        return "redirect:/register_list";
     }
 
     //LIST
-
 
     //CREATE
     //http://localhost:4444/save/register
