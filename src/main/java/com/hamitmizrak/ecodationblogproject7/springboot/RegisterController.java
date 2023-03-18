@@ -1,8 +1,12 @@
 package com.hamitmizrak.ecodationblogproject7.springboot;
 
 
+import com.hamitmizrak.ecodationblogproject7.springboot._03_SpringDATA.IRegisterRepository;
+import com.hamitmizrak.ecodationblogproject7.springboot._03_SpringDATA.RegisterEntity;
+import com.hamitmizrak.ecodationblogproject7.springboot.bean.ModelMapperBean;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,6 +27,10 @@ import java.util.UUID;
 //@RequestMapping("register")
 public class RegisterController {
 
+    //Injection
+    private final ModelMapperBean modelMapperBean; //dto to entity
+    private final IRegisterRepository iRegisterRepository; //database
+
     //Speed
     //http://localhost:4444/speed
     @GetMapping("speed")
@@ -34,11 +42,12 @@ public class RegisterController {
                     .email("email" + i + "gmail.com")
                     .password(UUID.randomUUID().toString())
                     .build();
+            //Dto'yu entity çevirdik
+            RegisterEntity registerEntity=modelMapperBean.modelMapperMethod().map(registerDto,RegisterEntity.class);
+            iRegisterRepository.save(registerEntity);
         }
         return "redirect:/register_list";
     }
-
-    //LIST
 
     //CREATE
     //http://localhost:4444/save/register
@@ -57,6 +66,9 @@ public class RegisterController {
             return "register_create";
         }
         System.out.println(registerDto);
+        //Dto'yu entity çevirdik
+        RegisterEntity registerEntity=modelMapperBean.modelMapperMethod().map(registerDto,RegisterEntity.class);
+        iRegisterRepository.save(registerEntity);
         return "redirect:/register_list";
     }
 }
