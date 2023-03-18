@@ -91,6 +91,19 @@ public class RegisterController {
     }
 
     //DELETE
+    //http://localhost:4444/delete/register
+    //http://localhost:4444/delete/register/1
+    @GetMapping({"delete/register","delete/register/{id}"})
+    public String getDeleteRegister(@PathVariable("id") Long id,Model model){
+        Optional<RegisterEntity> findEntity= iRegisterRepository.findById(id);
+        if(findEntity.isPresent()){
+            model.addAttribute("delete_key",findEntity.get());
+            iRegisterRepository.deleteById(id);
+        }else{
+            model.addAttribute("delete_key",id+" nolu veri bulunamadı");
+        }
+        return "redirect:/list/register";
+    }
 
     //UPDATE
 
