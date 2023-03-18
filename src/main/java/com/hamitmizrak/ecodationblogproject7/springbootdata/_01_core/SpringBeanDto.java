@@ -1,4 +1,4 @@
-package com.hamitmizrak.ecodationblogproject7.springboot._01_core;
+package com.hamitmizrak.ecodationblogproject7.springbootdata._01_core;
 
 //bean:
 

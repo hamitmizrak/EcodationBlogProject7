@@ -1,4 +1,4 @@
-package com.hamitmizrak.ecodationblogproject7.springboot.bean;
+package com.hamitmizrak.ecodationblogproject7.bean;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
