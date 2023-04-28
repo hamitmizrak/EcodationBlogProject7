@@ -66,11 +66,17 @@
 
         <div class="form-group mb-4">
             <label for="name">telephone</label>
-            <input type="text" class="form-control" th:field="*{telephone}" autofocus="false" placeholder="hescode" id="telephone" name="telephone"/>
+            <input type="text" class="form-control" th:field="*{telephone}" autofocus="false" placeholder="telephone" id="telephone" name="telephone"/>
             <div class="text-danger" th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}"></div>
         </div>
 
         <div class="form-group mb-4">
+            <label for="name">hescode</label>
+            <input type="text" class="form-control" th:field="*{hescode}" autofocus="false" placeholder="hescode" id="hescode" name="hescode"/>
+            <div class="text-danger" th:if="${#fields.hasErrors('hescode')}" th:errors="*{hescode}"></div>
+        </div>
+
+        <div class="form-group mb-4 mt-3">
           <input type="reset" class="btn btn-danger" value="Temizle"/>
           <input type="submit" class="btn btn-primary" value="Gönder"/>
             <a th:href="@{/list/register}" class="btn btn-warning">Register</a>

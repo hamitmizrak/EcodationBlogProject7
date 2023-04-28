@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 //Lombok
 @RequiredArgsConstructor
@@ -38,7 +38,12 @@ public class RegisterController {
     public String createSpeed(Model model) {
         for (int i = 1; i <= 5; i++) {
             RegisterEntity registerEntity = RegisterEntity.builder()
-                    .name("adi " + i).surname("surname " + i).password("password " + i).email("email" + i + "@gmail.com").telephone("+90111222334455")
+                    .name("adi " + i)
+                    .surname("surname " + i)
+                    .password("password " + i)
+                    .email("email" + i + "@gmail.com")
+                    .telephone("+90111222334455")
+                    .hescode(UUID.randomUUID().toString())
                     .build();
             iRegisterRepository.save(registerEntity);
         }

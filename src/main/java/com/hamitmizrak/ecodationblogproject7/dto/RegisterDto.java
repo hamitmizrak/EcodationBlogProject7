@@ -10,6 +10,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 //Lombok
 @Data
@@ -35,7 +36,12 @@ public class RegisterDto {
     @NotEmpty(message = "telephone boş geçilemez")
     private String telephone;
 
+    @NotEmpty(message = "hescode boş geçilemez")
+    private String hescode;
+
     @NotEmpty(message = " email Address boş geçimezsiniz")
     @Email(message = " email uygun formatta girmediniz")
     private String email;
+
+    private Date createdDate;
 }

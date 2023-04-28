@@ -39,13 +39,15 @@
     <!-- start codes -->
     <h1 class="text-primary">Detail Page</h1>
     <div class="card" style="width: 18rem;">
-        <div class="card-body">
+        <div class="card-body text-center">
             <h5 th:text="${find_key.id}"  class="card-title"></h5>
             <p th:text="${find_key.name}" class="card-text"></p>
             <p th:text="${find_key.surname}" class="card-text"></p>
             <p th:text="${find_key.email}" class="card-text"></p>
             <p th:text="${find_key.telephone}" class="card-text"></p>
             <p th:text="${find_key.password}" class="card-text"></p>
+            <p th:text="${find_key.hescode}" class="card-text"></p>
+            <p th:text="${find_key.systemCreatedDate}" class="card-text"></p>
             <a  href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>

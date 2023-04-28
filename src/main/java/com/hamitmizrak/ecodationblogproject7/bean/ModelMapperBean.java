@@ -12,5 +12,4 @@ public class ModelMapperBean {
         return new ModelMapper();
     }
 
-
 }

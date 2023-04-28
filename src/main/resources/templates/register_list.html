@@ -41,17 +41,18 @@
 <body class="container">
 <!-- starts codes -->
 <a th:href="@{/speed}" class="btn btn-warning btn-sm mt-5 mb-5">Hızlı Veri Ekle</a>
-<a th:href="@{/save/register}" class="btn btn-primary btn-sm mt-5 mb-5">Üye  Ekle</a>
+<a th:href="@{/save/register}" class="btn btn-primary btn-sm mt-5 mb-5">Register  Ekle</a>
 <table class="table table-hover table-striped table-bordered table-dark table-sm" style="cursor:pointer;" id="datalistregisterTable">
     <thead>
     <tr>
-        <th  th:text="#{data.id}"></th>
-        <th  th:text="#{data.name}"></th>
-        <th  th:text="#{data.surname}"></th>
-        <th  th:text="#{data.password}"></th>
-        <th  th:text="#{data.email}"></th>
-        <th  th:text="#{data.hescode}"></th>
-        <th  th:text="#{data.created}"></th>
+        <th  th:text="#{register.id}"></th>
+        <th  th:text="#{register.name}"></th>
+        <th  th:text="#{register.surname}"></th>
+        <th  th:text="#{register.password}"></th>
+        <th  th:text="#{register.email}"></th>
+        <th  th:text="#{register.telephone}"></th>
+        <th  th:text="#{register.hescode}"></th>
+        <th  th:text="#{register.created}"></th>
         <th>Update</th>
         <th>Show</th>
         <th>Delete</th>
@@ -66,7 +67,8 @@
         <td th:text="${register.password}"></td>
         <td th:text="${register.email}"></td>
         <td th:text="${register.telephone}"></td>
-        <td th:text="${register.systemCreatedDate}"></td>
+        <td th:text="${register.hescode}"></td>
+        <td th:text="${register.createdDate}"></td>
         <td> <a th:href="@{/update/register/{id}(id=${register.id})}"><i class="fa-solid fa-wrench  text-primary"></i></a> </td>
         <td><a th:href="@{/find/register/{id}(id=${register.id})}"    ><i class="fa-regular fa-eye-slash text-info"></i></a></td>
         <!--<td> <a th:href="@{/delete/register/{id}(id=${register.id})}" th:onclick="if(!(confirm('Silmek istiyor musunuz'))) return false"><i class="fa-solid fa-trash text-danger"></i></a> </td>-->
